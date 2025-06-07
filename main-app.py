@@ -1,9 +1,10 @@
 import streamlit as st
 import numpy as np
 import pickle
+import joblib
 
 # Load model, scaler, dan encoder
-model = pickle.load(open("model_obesity.pkl", "rb"))
+model = joblib.load("model_obesity.pkl")
 scaler = pickle.load(open("scaler.pkl", "rb"))
 label_encoder = pickle.load(open("label_encoder.pkl", "rb"))
 
