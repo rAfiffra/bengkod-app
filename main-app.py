@@ -24,10 +24,10 @@ tue = st.slider("Waktu penggunaan teknologi (jam/hari)", 0.0, 2.0, 1.0)
 # Kategori ordinal / biner
 calc = st.selectbox("Konsumsi Alkohol", ['no', 'Sometimes', 'Frequently', 'Always'])
 caec = st.selectbox("Konsumsi camilan", ['no', 'Sometimes', 'Frequently', 'Always'])
-favc = st.radio("Sering makan tinggi kalori?", ['no', 'yes'])
-scc = st.radio("Pantau asupan kalori?", ['no', 'yes'])
-smoke = st.radio("Apakah merokok?", ['no', 'yes'])
-family_history = st.radio("Riwayat keluarga obesitas?", ['no', 'yes'])
+favc = st.radio("Sering makan tinggi kalori?", ['yes', 'no'])
+scc = st.radio("Pantau asupan kalori?", ['yes', 'no'])
+smoke = st.radio("Apakah merokok?", ['yes', 'no'])
+family_history = st.radio("Riwayat keluarga obesitas?", ['yes', 'no'])
 
 # Gender one-hot
 gender = st.radio("Jenis kelamin", ['Male', 'Female'])
