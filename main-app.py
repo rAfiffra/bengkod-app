@@ -42,8 +42,6 @@ m_motor = int(mtrans == 'Motorbike')
 m_trans = int(mtrans == 'Public_Transportation')
 m_walk = int(mtrans == 'Walking')
 
-st.write("👀 Shape input untuk predict:", scaled_input.shape)
-st.write("👀 Jumlah fitur model:", model.n_features_in_)
 
 # Prediksi
 if st.button("Prediksi"):
@@ -54,7 +52,11 @@ if st.button("Prediksi"):
                             faf, tue, ['no', 'Sometimes', 'Frequently', 'Always'].index(caec),
                             gender_female, gender_male,
                             m_auto, m_bike, m_motor, m_trans, m_walk]])
+
     
+st.write("👀 Shape input untuk predict:", scaled_input.shape)
+st.write("👀 Jumlah fitur model:", model.n_features_in_)
+
     #st.write("Data input yang dikirim ke model:")
     #st.write(pd.DataFrame(input_data, columns=[
     #    'Age', 'Height', 'Weight', 
