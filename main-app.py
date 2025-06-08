@@ -50,7 +50,7 @@ if st.button("Prediksi"):
                             faf, tue, ['no', 'Sometimes', 'Frequently', 'Always'].index(caec),
                             gender_female, gender_male,
                             m_auto, m_bike, m_motor, m_trans, m_walk]])
-
+    st.write("Jumlah fitur input:", input_data.shape[1])
     scaled_input = scaler.transform(input_data)
     prediction = model.predict(scaled_input)
     kelas = label_encoder.inverse_transform(prediction)[0]
