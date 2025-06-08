@@ -42,6 +42,9 @@ m_motor = int(mtrans == 'Motorbike')
 m_trans = int(mtrans == 'Public_Transportation')
 m_walk = int(mtrans == 'Walking')
 
+st.write("👀 Shape input untuk predict:", scaled_input.shape)
+st.write("👀 Jumlah fitur model:", model.n_features_in_)
+
 # Prediksi
 if st.button("Prediksi"):
     input_data = np.array([[age, height, weight, 
