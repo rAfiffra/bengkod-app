@@ -45,7 +45,7 @@ m_walk = int(mtrans == 'Walking')
 if st.button("Prediksi"):
     input_data = np.array([[age, height, weight, 
                             ['no', 'Sometimes', 'Frequently', 'Always'].index(calc),
-                            int(favc == 'yes'), fcvc, ncp, int(scc == 'yes'), 
+                            int(favc == 'no'), fcvc, ncp, int(scc == 'yes'), 
                             int(smoke == 'yes'), ch2o, int(family_history == 'yes'),
                             faf, tue, ['no', 'Sometimes', 'Frequently', 'Always'].index(caec),
                             gender_female, gender_male,
