@@ -46,24 +46,22 @@ m_walk = int(mtrans == 'Walking')
 if st.button("Prediksi"):
     input_data = np.array([[age, height, weight, 
                             ['no', 'Sometimes', 'Frequently', 'Always'].index(calc),
-                            int(favc == 'no'), fcvc, ncp, int(scc == 'yes'), 
+                            int(favc == 'yes'), fcvc, ncp, int(scc == 'yes'), 
                             int(smoke == 'yes'), ch2o, int(family_history == 'yes'),
                             faf, tue, ['no', 'Sometimes', 'Frequently', 'Always'].index(caec),
                             gender_female, gender_male,
                             m_auto, m_bike, m_motor, m_trans, m_walk]])
     
-    st.write("🔍 Data input yang dikirim ke model:")
-    st.write(pd.DataFrame(input_data, columns=[
-        'Age', 'Height', 'Weight', 
-        'CALC', 'FAVC', 'FCVC', 'NCP', 'SCC', 'SMOKE', 'CH2O', 
-        'family_history_with_overweight', 'FAF', 'TUE', 'CAEC', 
-        'Gender_Female', 'Gender_Male', 
-        'MTRANS_Automobile', 'MTRANS_Bike', 'MTRANS_Motorbike', 
-        'MTRANS_Public_Transportation', 'MTRANS_Walking'
-    ]))
-    st.write("Jumlah fitur input:", input_data.shape[1])
-    st.write("📐 Shape input:", input_data.shape)
-    st.write("🧠 Jumlah fitur scaler:", scaler.n_features_in_)
+    #st.write("Data input yang dikirim ke model:")
+    #st.write(pd.DataFrame(input_data, columns=[
+    #    'Age', 'Height', 'Weight', 
+    #     'CALC', 'FAVC', 'FCVC', 'NCP', 'SCC', 'SMOKE', 'CH2O', 
+    #    'family_history_with_overweight', 'FAF', 'TUE', 'CAEC', 
+    #    'Gender_Female', 'Gender_Male', 
+    #    'MTRANS_Automobile', 'MTRANS_Bike', 'MTRANS_Motorbike', 
+    #    'MTRANS_Public_Transportation', 'MTRANS_Walking'
+  #  ]))
+
     
   
     scaled_input = scaler.transform(input_data)
