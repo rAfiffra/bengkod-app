@@ -42,7 +42,6 @@ m_motor = int(mtrans == 'Motorbike')
 m_trans = int(mtrans == 'Public_Transportation')
 m_walk = int(mtrans == 'Walking')
 
-
 # Prediksi
 if st.button("Prediksi"):
     input_data = np.array([[age, height, weight, 
@@ -53,24 +52,11 @@ if st.button("Prediksi"):
                             gender_female, gender_male,
                             m_auto, m_bike, m_motor, m_trans, m_walk]])
 
-    
-st.write("👀 Shape input untuk predict:", scaled_input.shape)
-st.write("👀 Jumlah fitur model:", model.n_features_in_)
+    st.write("👀 Shape input untuk predict:", input_data.shape)
+    st.write("🧠 Jumlah fitur model:", model.n_features_in_)
 
-    #st.write("Data input yang dikirim ke model:")
-    #st.write(pd.DataFrame(input_data, columns=[
-    #    'Age', 'Height', 'Weight', 
-    #     'CALC', 'FAVC', 'FCVC', 'NCP', 'SCC', 'SMOKE', 'CH2O', 
-    #    'family_history_with_overweight', 'FAF', 'TUE', 'CAEC', 
-    #    'Gender_Female', 'Gender_Male', 
-    #    'MTRANS_Automobile', 'MTRANS_Bike', 'MTRANS_Motorbike', 
-    #    'MTRANS_Public_Transportation', 'MTRANS_Walking'
-  #  ]))
-
-    
-  
     scaled_input = scaler.transform(input_data)
     prediction = model.predict(scaled_input)
     kelas = label_encoder.inverse_transform(prediction)[0]
-    
+
     st.success(f"Tingkat Obesitas Anda: **{kelas}**")
