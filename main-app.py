@@ -2,6 +2,7 @@ import streamlit as st
 import numpy as np
 import pickle
 import joblib
+import pandas as pd
 
 # Load model, scaler, dan encoder
 model = joblib.load("model_obesity.pkl")
@@ -50,7 +51,21 @@ if st.button("Prediksi"):
                             faf, tue, ['no', 'Sometimes', 'Frequently', 'Always'].index(caec),
                             gender_female, gender_male,
                             m_auto, m_bike, m_motor, m_trans, m_walk]])
+    
+    st.write("🔍 Data input yang dikirim ke model:")
+    st.write(pd.DataFrame(input_data, columns=[
+        'Age', 'Height', 'Weight', 
+        'CALC', 'FAVC', 'FCVC', 'NCP', 'SCC', 'SMOKE', 'CH2O', 
+        'family_history_with_overweight', 'FAF', 'TUE', 'CAEC', 
+        'Gender_Female', 'Gender_Male', 
+        'MTRANS_Automobile', 'MTRANS_Bike', 'MTRANS_Motorbike', 
+        'MTRANS_Public_Transportation', 'MTRANS_Walking'
+    ]))
     st.write("Jumlah fitur input:", input_data.shape[1])
+    st.write("📐 Shape input:", input_data.shape)
+    st.write("🧠 Jumlah fitur scaler:", scaler.n_features_in_)
+    
+  
     scaled_input = scaler.transform(input_data)
     prediction = model.predict(scaled_input)
     kelas = label_encoder.inverse_transform(prediction)[0]
